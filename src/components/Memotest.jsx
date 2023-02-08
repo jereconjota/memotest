@@ -65,7 +65,11 @@ export default function Memotest() {
                             borderRadius: 12,
                             padding: 12,
                         }}
-                        onClick={() => { selected.length < 2 && setSelected((selected) => selected.concat(image)) }}
+                        onClick={() => { 
+                            if (selected.includes(image)) return;
+                            if (guessed.includes(image)) return;
+                            selected.length < 2 && setSelected((selected) => selected.concat(image)) 
+                        }}
                     >
                         {/* Si el elemento está en el array selected o guessed, mostramos la imagen */}
                         {selected.includes(image) || guessed.includes(image) ? (
